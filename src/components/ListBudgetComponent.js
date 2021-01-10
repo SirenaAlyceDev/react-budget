@@ -5,6 +5,7 @@ class ListCalculator extends Component {
   render() {
     return (
       <div className="container">
+          <h1>Simple List Budget</h1>
         <div className="row">
           <div className="col">
             <Form id="moneyInForm">
