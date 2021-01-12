@@ -51,14 +51,5 @@
   margin: 2px;
 }
 /* End Code to check grid layout */
-.main-jumbo {
-  height: 75vh;
-}
-.header-row {
-  display: flex;
-  align-items: center;
-}
-.main-container {
-  height: 100vh;
-}
+
 

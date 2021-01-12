@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+    Container,
   Jumbotron,
   TabContent,
   TabPane,
@@ -26,7 +27,7 @@ const Home = (props) => {
       <div>
         <Header />
       </div>
-      <div className="container-fluid main-container">
+      <Container fluid>
         <Jumbotron fluid>
             <Row>
             <Col>
@@ -121,7 +122,7 @@ const Home = (props) => {
             </TabPane>
           </TabContent>
         </div>
-      </div>
+      </Container>
     </React.Fragment>
   );
 };
