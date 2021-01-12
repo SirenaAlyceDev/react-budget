@@ -27,7 +27,7 @@ const Home = (props) => {
         <Header />
       </div>
       <div className="container-fluid main-container">
-        <Jumbotron fluid className="main-jumbo">
+        <Jumbotron fluid>
             <Row>
             <Col>
             <h1>Header</h1>
