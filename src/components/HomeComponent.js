@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  Jumbotron,
   TabContent,
   TabPane,
   Nav,
@@ -10,7 +11,8 @@ import {
   Col,
 } from "reactstrap";
 import classnames from "classnames";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
 import Header from "./HeaderComponent";
 
 const Home = (props) => {
@@ -24,76 +26,101 @@ const Home = (props) => {
       <div>
         <Header />
       </div>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col">
+      <div className="container-fluid main-container">
+        <Jumbotron fluid className="main-jumbo">
+            <Row>
+            <Col>
             <h1>Header</h1>
             <h3>Sub Header</h3>
-            <Button color="success" size="lg">Test</Button>
-          </div>
-          <div className="col">
+            <Button color="success" size="lg">
+              Test
+            </Button>
+          </Col>
+          <Col>
             <p>image goes here</p>
-          </div>
-        </div>
+          </Col>
+            </Row>
+        </Jumbotron>
+
         <div className="row">
-            <div className="col">
+          <div className="col">
             <h2>Features</h2>
-            </div>
+          </div>
         </div>
         <div>
-        <Nav tabs>
+          <Nav tabs>
             <NavItem>
-                <NavLink className={classnames({ active: activeTab ==='1'})}onClick={() => { toggle('1');}}>
-                    Tab1
-                </NavLink>
+              <NavLink
+                className={classnames({ active: activeTab === "1" })}
+                onClick={() => {
+                  toggle("1");
+                }}
+              >
+                Tab1
+              </NavLink>
             </NavItem>
             <NavItem>
-                <NavLink className={classnames({ active: activeTab ==='2'})}onClick={() => { toggle('2');}}>
-                    Tab 2
-                </NavLink>
+              <NavLink
+                className={classnames({ active: activeTab === "2" })}
+                onClick={() => {
+                  toggle("2");
+                }}
+              >
+                Tab 2
+              </NavLink>
             </NavItem>
             <NavItem>
-                <NavLink className={classnames({ active: activeTab ==='3'})}onClick={() => { toggle('3');}}>
-                    Tab 3
-                </NavLink>
+              <NavLink
+                className={classnames({ active: activeTab === "3" })}
+                onClick={() => {
+                  toggle("3");
+                }}
+              >
+                Tab 3
+              </NavLink>
             </NavItem>
             <NavItem>
-                <NavLink className={classnames({ active: activeTab ==='4'})}onClick={() => { toggle('4');}}>
-                    Tab 4
-                </NavLink>
+              <NavLink
+                className={classnames({ active: activeTab === "4" })}
+                onClick={() => {
+                  toggle("4");
+                }}
+              >
+                Tab 4
+              </NavLink>
             </NavItem>
-        </Nav>
-        <TabContent activeTab={activeTab}>
+          </Nav>
+          <TabContent activeTab={activeTab}>
             <TabPane tabId="1">
-                <Row>
-                    <Col>
-                    <h4>Tab1 Conent</h4>
-                    </Col>
-                </Row>
+              <Row>
+                <Col>
+                  <h4>Tab1 Conent</h4>
+                </Col>
+              </Row>
             </TabPane>
             <TabPane tabId="2">
-                <Row>
-                    <Col>
-                    <h4>Tab2 Conent</h4>
-                    </Col>
-                </Row>
+              <Row>
+                <Col>
+                  <h4>Tab2 Conent</h4>
+                </Col>
+              </Row>
             </TabPane>
             <TabPane tabId="3">
-                <Row>
-                    <Col>
-                    <h4>Tab3 Conent</h4>
-                    </Col>
-                </Row>
+              <Row>
+                <Col>
+                  <h4>Tab3 Conent</h4>
+                </Col>
+              </Row>
             </TabPane>
             <TabPane tabId="4">
-                <Row>
-                    <Col>
-                    <h4>Tab4 Conent</h4>
-                    </Col>
-                </Row>
+              <Row>
+                <Col>
+                  <h4>Tab4 Conent</h4>
+                </Col>
+              </Row>
             </TabPane>
-        </TabContent>
-      </div>
+          </TabContent>
+        </div>
       </div>
     </React.Fragment>
   );

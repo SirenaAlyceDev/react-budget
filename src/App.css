@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+/* Code to check grid layout */
+.col {
+  border: solid 1px blue;
+  margin: 2px;
+}
+.row {
+  border: solid 1px red;
+  margin: 2px;
+}
+.container-fluid {
+  border: solid 1px purple;
+  margin: 2px;
+}
+/* End Code to check grid layout */
+.main-jumbo {
+  height: 75vh;
+}
+.main-container {
+  /* height: 100vh; */
+}
+
