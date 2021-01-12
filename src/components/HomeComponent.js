@@ -27,11 +27,17 @@ const Home = (props) => {
       <div>
         <Header />
       </div>
-      <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
-        <h1>Title</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        <button class="btn btn-primary">Get Started</button>
+      {/* <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> */}
+      <div class="container-fluid d-flex align-items-center min-vh-100">
+        <div class="col">
+          <h1>test</h1>
+        </div>
+        <div class="col">
+          <p>next</p>
+        </div>
       </div>
+      {/* </div> */}
+
       {/* <Container fluid className="main-container">
         <Jumbotron fluid>
           <Row>
