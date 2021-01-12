@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-    Container,
+  Container,
   Jumbotron,
   TabContent,
   TabPane,
@@ -27,20 +27,20 @@ const Home = (props) => {
       <div>
         <Header />
       </div>
-      <Container fluid>
+      <Container fluid className="main-container">
         <Jumbotron fluid>
-            <Row>
+          <Row>
             <Col>
-            <h1>Header</h1>
-            <h3>Sub Header</h3>
-            <Button color="success" size="lg">
-              Test
-            </Button>
-          </Col>
-          <Col>
-            <p>image goes here</p>
-          </Col>
-            </Row>
+              <h1>Header</h1>
+              <h3>Sub Header</h3>
+              <Button color="success" size="lg">
+                Test
+              </Button>
+            </Col>
+            <Col>
+              <p>image goes here</p>
+            </Col>
+          </Row>
         </Jumbotron>
 
         <div className="row">
