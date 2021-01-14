@@ -87,6 +87,9 @@ div.tab-content {
   height: 100%;
 }
 
+ul.navbar-nav {
+  font-size: 12px;
+}
 a.nav-link {
   color: #333333 !important;
 }
@@ -118,6 +121,10 @@ a.nav-link {
   border: none;
   font-weight: bold;
   font-size: 12px;
+}
+
+.tabscontainer {
+  margin-left: 20px;
 }
 
 .featuresheader {

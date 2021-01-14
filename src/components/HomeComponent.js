@@ -29,7 +29,7 @@ const Home = (props) => {
       <Container fluid className="d-flex align-items-center">
    
           <div className="row w-100 align-items-center">
-            <div className="col">
+            <div className="col text-right">
               <p className="pre-header">MANAGING YOUR MONEY YOUR WAY</p>
               <h1 className="heading">
                 BUDGETING
@@ -57,7 +57,7 @@ const Home = (props) => {
       </Container>
       <Container fluid className="tabscontainer mt-5">
       <div className="row w-100">
-            <div className="col">
+            <div className="col features">
               <h2 className="featuresheader">FEATURES</h2>
             </div>
           </div>
