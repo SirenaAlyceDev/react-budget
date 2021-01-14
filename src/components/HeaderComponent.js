@@ -28,9 +28,9 @@ class Header extends Component {
 
   render() {
     return (
-      <Navbar sticky="top" expand="md">
+      <Navbar color="faded" sticky="top" expand="md" light>
         <div className="container-fluid">
-          <NavbarBrand href="/" className="mr-auto">
+          <NavbarBrand href="/" className="mr-auto navlogotext">
             The B-Word
           </NavbarBrand>
           <NavbarToggler onClick={this.toggleNav} className="mr-2" />

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Container,
-  Jumbotron,
   TabContent,
   TabPane,
   Nav,
@@ -27,116 +26,135 @@ const Home = (props) => {
       <div>
         <Header />
       </div>
-      {/* <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center"> */}
-      <div className="container-fluid d-flex align-items-center min-vh-100">
-          <div class='row w-100'>
-          <div class="col">
-          <h1>test</h1>
-        </div>
-        <div class="col">
-          <p>next</p>
-        </div>
-          </div>
-
-      </div>
-      {/* </div> */}
-
-      {/* <Container fluid className="main-container">
-        <Jumbotron fluid>
-          <Row>
-            <Col>
-              <h1>Header</h1>
-              <h3>Sub Header</h3>
-              <Button color="success" size="lg">
-                Test
+      <Container fluid className="container-fluid d-flex align-items-center">
+   
+          <div className="row w-100 align-items-center">
+            <div className="col">
+              <p className="pre-header">MANAGING YOUR MONEY YOUR WAY</p>
+              <h1 className="heading">
+                BUDGETING
+                <br /> TO FINANICAL <br /> PEACE
+              </h1>
+              <h3 className="subheading">
+                KEEP YOUR EYES ON THE PRIZE AND CREATE A BUDGET PLAN <br /> TO
+                CHANGE YOUR FUTURE
+              </h3>
+              <Button size="sm" className="ctahome">
+                Start Budgeting
               </Button>
-            </Col>
-            <Col>
-              <p>image goes here</p>
-            </Col>
-          </Row>
-        </Jumbotron>
-
-        <div className="row">
-          <div className="col">
-            <h2>Features</h2>
+            </div>
+            <div className="col text-center">
+              <img
+                className="home-image"
+                src="/assets/images/pexels-ketut-subiyanto-4350108.jpg"
+                height="400"
+                width="300"
+                alt="home-img"
+              />
+            </div>
           </div>
-        </div>
-        <div>
-          <Nav tabs>
-            <NavItem>
-              <NavLink
-                className={classnames({ active: activeTab === "1" })}
-                onClick={() => {
-                  toggle("1");
-                }}
-              >
-                Tab1
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                className={classnames({ active: activeTab === "2" })}
-                onClick={() => {
-                  toggle("2");
-                }}
-              >
-                Tab 2
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                className={classnames({ active: activeTab === "3" })}
-                onClick={() => {
-                  toggle("3");
-                }}
-              >
-                Tab 3
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                className={classnames({ active: activeTab === "4" })}
-                onClick={() => {
-                  toggle("4");
-                }}
-              >
-                Tab 4
-              </NavLink>
-            </NavItem>
-          </Nav>
-          <TabContent activeTab={activeTab}>
-            <TabPane tabId="1">
-              <Row>
-                <Col>
-                  <h4>Tab1 Conent</h4>
-                </Col>
-              </Row>
-            </TabPane>
-            <TabPane tabId="2">
-              <Row>
-                <Col>
-                  <h4>Tab2 Conent</h4>
-                </Col>
-              </Row>
-            </TabPane>
-            <TabPane tabId="3">
-              <Row>
-                <Col>
-                  <h4>Tab3 Conent</h4>
-                </Col>
-              </Row>
-            </TabPane>
-            <TabPane tabId="4">
-              <Row>
-                <Col>
-                  <h4>Tab4 Conent</h4>
-                </Col>
-              </Row>
-            </TabPane>
-          </TabContent>
-        </div>
-      </Container> */}
+   
+      </Container>
+      <Container fluid className="tabscontainer">
+      <div className="row w-100">
+            <div className="col">
+              <h2 className="featuresheader">FEATURES</h2>
+            </div>
+          </div>
+          <div className="row w-100">
+            <div className="col">
+              <Nav tabs>
+                <NavItem>
+                  <NavLink
+                    className={classnames({ active: activeTab === "1" })}
+                    onClick={() => {
+                      toggle("1");
+                    }}
+                  >
+                    Eyes on the Prize
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    className={classnames({ active: activeTab === "2" })}
+                    onClick={() => {
+                      toggle("2");
+                    }}
+                  >
+                    Reduce Debt
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    className={classnames({ active: activeTab === "3" })}
+                    onClick={() => {
+                      toggle("3");
+                    }}
+                  >
+                    Organize Spending & Savings
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    className={classnames({ active: activeTab === "4" })}
+                    onClick={() => {
+                      toggle("4");
+                    }}
+                  >
+                    Kill Bad Habits & Make Better Choices
+                  </NavLink>
+                </NavItem>
+              </Nav>
+              <TabContent activeTab={activeTab} className="d-flex align-items-stretch">
+                <TabPane tabId="1">
+                  <Row>
+                    <Col>
+                      <p>
+                        Donut jelly-o pastry toffee. Chocolate cake pudding
+                        jelly-o. Cheesecake halvah soufflé bonbon. Cupcake
+                        dessert pastry pastry lemon drops dessert apple pie pie.
+                      </p>
+                    </Col>
+                  </Row>
+                </TabPane>
+                <TabPane tabId="2">
+                  <Row>
+                    <Col>
+                      <p>
+                        Jelly-o danish gummies brownie cake sugar plum bonbon
+                        bear claw. Apple pie candy canes chupa chups ice cream
+                        pie chocolate cake. Lemon drops apple pie macaroon
+                        powder.
+                      </p>
+                    </Col>
+                  </Row>
+                </TabPane>
+                <TabPane tabId="3">
+                  <Row>
+                    <Col>
+                      <p>
+                        Cake topping biscuit. Cupcake toffee cheesecake danish
+                        biscuit gummi bears croissant tiramisu. Candy canes
+                        chocolate cake candy canes.
+                      </p>
+                    </Col>
+                  </Row>
+                </TabPane>
+                <TabPane tabId="4">
+                  <Row>
+                    <Col>
+                      <p>
+                        Macaroon sweet biscuit lollipop pie jujubes tart.
+                        Chocolate chocolate cake cotton candy. Tiramisu cotton
+                        candy soufflé.
+                      </p>
+                    </Col>
+                  </Row>
+                </TabPane>
+              </TabContent>
+            </div>
+          </div>
+      </Container>
     </React.Fragment>
   );
 };
