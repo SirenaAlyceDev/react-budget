@@ -32,7 +32,7 @@ const Home = (props) => {
             <div className="col text-right">
               <p className="pre-header">MANAGING YOUR MONEY YOUR WAY</p>
               <h1 className="heading">
-                BUDGETING
+                BUDGETING YOUR WAY
                 <br /> TO FINANICAL <br /> PEACE
               </h1>
               <h3 className="subheading">
