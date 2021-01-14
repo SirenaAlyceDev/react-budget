@@ -54,7 +54,7 @@
 } */
 /* End Code to check grid layout */
 
-html, body { height: 100%;}
+/* html, body { height: 100%;} */
 
 
 h1, h2 {
@@ -80,6 +80,7 @@ div.tab-pane.active {
   color: #ffffff;
   padding: 30px 20px;
   border-bottom-left-radius: 20px;
+  width: 100%;
 }
 
 div.tab-content {

@@ -26,7 +26,7 @@ const Home = (props) => {
       <div>
         <Header />
       </div>
-      <Container fluid className="container-fluid d-flex align-items-center">
+      <Container fluid className="d-flex align-items-center">
    
           <div className="row w-100 align-items-center">
             <div className="col">
@@ -55,7 +55,7 @@ const Home = (props) => {
           </div>
    
       </Container>
-      <Container fluid className="tabscontainer">
+      <Container fluid className="tabscontainer mt-5">
       <div className="row w-100">
             <div className="col">
               <h2 className="featuresheader">FEATURES</h2>
@@ -105,7 +105,7 @@ const Home = (props) => {
                   </NavLink>
                 </NavItem>
               </Nav>
-              <TabContent activeTab={activeTab} className="d-flex align-items-stretch">
+              <TabContent activeTab={activeTab} >
                 <TabPane tabId="1">
                   <Row>
                     <Col>
