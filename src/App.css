@@ -73,6 +73,12 @@ div.tab-content {
 a.active.nav-link {
   color: #ffffff !important;
   background-color: #1f2f98 !important;
+  border-top-left-radius: 20px;
+  border:none;
+}
+
+a.nav-link:hover {
+  border: none;
 }
 
 div.tab-pane.active {
@@ -80,8 +86,10 @@ div.tab-pane.active {
   color: #ffffff;
   padding: 30px 20px;
   border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   width: 100%;
 }
+
 
 div.tab-content {
   height: 100%;
