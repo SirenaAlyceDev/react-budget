@@ -123,6 +123,7 @@ a.nav-link {
   color: #210e43;
 }
 
-/* .home-image {
-  border-radius: 15px;
-} */
+.home-image {
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
