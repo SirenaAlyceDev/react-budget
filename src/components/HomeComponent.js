@@ -9,6 +9,10 @@ import {
   Button,
   Row,
   Col,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalFooter
 } from "reactstrap";
 import classnames from "classnames";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,15 +25,17 @@ const Home = (props) => {
     if (activeTab !== tab) setActivetab(tab);
   };
 
+  const [modal, isModalOpen] = useState(false);
+  const toggleModal = () => isModalOpen(!modal);
+
   return (
     <React.Fragment>
       <div>
         <Header />
       </div>
-      <Container fluid className="d-flex align-items-center">
-   
+      <Container fluid className="d-flex align-items-center mainContainer"> 
           <div className="row w-100 align-items-center">
-            <div className="col text-right">
+            <div className="col text-right headerDiv">
               <p className="pre-header">MANAGING YOUR MONEY YOUR WAY</p>
               <h1 className="heading">
                 BUDGETING YOUR WAY
@@ -39,11 +45,11 @@ const Home = (props) => {
                 KEEP YOUR EYES ON THE PRIZE AND CREATE A BUDGET PLAN <br /> TO
                 CHANGE YOUR FUTURE
               </h3>
-              <Button size="sm" className="ctahome">
+              <Button size="sm" className="ctahome" onClick={toggleModal}>
                 Start Budgeting
               </Button>
             </div>
-            <div className="col text-center">
+            <div className="col text-center homeImageDiv">
               <img
                 className="home-image"
                 src="/assets/images/pexels-ketut-subiyanto-4350108.jpg"
@@ -52,10 +58,18 @@ const Home = (props) => {
                 alt="home-img"
               />
             </div>
-          </div>
-   
+          </div>   
       </Container>
-      <Container fluid className="tabscontainer mt-5">
+
+      <Modal isOpen={modal} toggle={toggleModal}>
+          <ModalHeader toggle={toggleModal} className="text-center">Let's get started!</ModalHeader>
+          <ModalBody>Next stop...financial peace</ModalBody>
+          <ModalFooter>
+            <Button>Submit</Button> <Button>Cancel</Button>
+          </ModalFooter>
+        </Modal>
+
+      <Container fluid className="tabscontainer fixed-bottom">
       <div className="row w-100">
             <div className="col features">
               <h2 className="featuresheader">FEATURES</h2>

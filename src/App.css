@@ -1,4 +1,5 @@
 /* font-family: 'Roboto', sans-serif; */
+/* #210e43 => for text */
 
 .App {
   text-align: center;
@@ -57,6 +58,13 @@
 /* html, body { height: 100%;} */
 
 
+body {
+  background-image: url(./imgs/blob3.svg),url(./imgs/blob.svg), url(./imgs/blob2.svg);
+  background-repeat: no-repeat;
+  background-size: 500px, 100px, 150px;
+  background-position: -90px -0px, center top, bottom right;
+}
+
 h1, h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
@@ -77,7 +85,7 @@ a.active.nav-link {
   border:none;
 }
 
-a.nav-link:hover {
+li.nav-item:hover {
   border: none;
 }
 
@@ -131,8 +139,13 @@ a.nav-link {
   font-size: 12px;
 }
 
+.mainContainer{
+  padding-top: 10px;
+}
+
 .tabscontainer {
   margin-left: 20px;
+  margin-bottom: 5px;
 }
 
 .featuresheader {
@@ -142,4 +155,13 @@ a.nav-link {
 .home-image {
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
+}
+
+div.modal {
+  color: #210E43;
+  text-align: center;
+}
+
+.modal-title {
+  text-align: center;
 }
