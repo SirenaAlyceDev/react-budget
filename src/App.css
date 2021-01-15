@@ -157,6 +157,15 @@ a.nav-link {
   border-bottom-left-radius: 20px;
 }
 
+.homeLoginButton {
+border-radius: 20px;
+border: none;
+background-image: linear-gradient(to bottom right, #4adede, #1ca7ec);
+color: white;
+font-weight: bold;
+font-size: 12px;
+}
+
 div.modal {
   color: #210E43;
   text-align: center;
