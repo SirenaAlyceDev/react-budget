@@ -78,7 +78,12 @@ p {
 div.tab-content {
   border:none;
 }
-a.active.nav-link {
+/* .navbar-light .navbar-nav a.active.nav-link:hover {
+  border-bottom: 2px solid #1f2f98; ;
+  text-decoration: #1f2f98;
+} */
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
   color: #ffffff !important;
   background-color: #1f2f98 !important;
   border-top-left-radius: 20px;
@@ -98,6 +103,9 @@ div.tab-pane.active {
   width: 100%;
 }
 
+.nav-tabs .nav-link {
+  border: none;
+}
 
 div.tab-content {
   height: 100%;
@@ -174,3 +182,27 @@ div.modal {
 .modal-title {
   text-align: center;
 }
+
+img.card-img-top {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+div.budgetCard {
+  background: rgba( 255, 255, 255, 0.20 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border-radius: 10px;
+  padding-top: 20px;
+}
+
+button.budgetButton {
+  border-radius: 20px;
+  border: none;
+  background-image: linear-gradient(to bottom right, #4adede, #1ca7ec);
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  }

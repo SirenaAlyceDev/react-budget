@@ -6,14 +6,13 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Button,
   Modal,
   ModalBody,
   ModalHeader,
   ModalFooter
 } from "reactstrap";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
@@ -44,20 +43,20 @@ class Header extends Component {
       <React.Fragment>
         <Navbar color="faded" sticky="top" expand="md" light>
           <div className="container-fluid">
-            <NavbarBrand href="/" className="mr-auto navlogotext">
+            <NavbarBrand href="/home" className="mr-auto navlogotext">
               The B-Word
             </NavbarBrand>
             <NavbarToggler onClick={this.toggleNav} className="mr-2" />
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar className="ml-auto">
                 <NavItem>
-                  <NavLink href="/">Pricing</NavLink>
+                  <NavLink className='nav-link' to="/pricing">Pricing</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/">FAQs</NavLink>
+                  <NavLink className='nav-link' to="/faqs">FAQs</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/">Blog</NavLink>
+                  <NavLink className='nav-link' to="/blog">Blog</NavLink>
                 </NavItem>
               </Nav>
               <span className="navbar-text">

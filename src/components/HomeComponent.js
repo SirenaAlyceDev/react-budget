@@ -17,7 +17,7 @@ import {
 import classnames from "classnames";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
-import Header from "./HeaderComponent";
+import { Redirect } from 'react-router-dom';
 
 const Home = (props) => {
   const [activeTab, setActivetab] = useState("1");
@@ -27,12 +27,10 @@ const Home = (props) => {
 
   const [modal, isModalOpen] = useState(false);
   const toggleModal = () => isModalOpen(!modal);
+  
 
   return (
     <React.Fragment>
-      <div>
-        <Header />
-      </div>
       <Container fluid className="d-flex align-items-center mainContainer"> 
           <div className="row w-100 align-items-center">
             <div className="col text-right headerDiv">
