@@ -206,3 +206,26 @@ button.budgetButton {
   font-weight: bold;
   font-size: 12px;
   }
+
+  /* List Budget Styling */
+
+  .moneyInHeader {
+    background-color: #7bd5f5;
+    border-radius: 5px;
+    color:white;
+    padding: 5px;
+  }
+
+  .moneyOutHeader {
+    background-color: #787ff6;
+    border-radius: 5px;
+    color:white;
+    padding: 5px;
+  }
+
+  .moneyLeftOverHeader {
+    background-color: #1f2f98;
+    border-radius: 5px;
+    color:white;
+    padding: 5px;
+  }

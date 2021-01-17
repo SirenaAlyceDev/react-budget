@@ -13,6 +13,10 @@ import {
   ModalBody,
   ModalHeader,
   ModalFooter,
+  Form,
+  FormGroup,
+  Label,
+  Input,
 } from "reactstrap";
 import classnames from "classnames";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -25,11 +29,15 @@ const Home = (props) => {
     if (activeTab !== tab) setActivetab(tab);
   };
 
+
   const [modal, isModalOpen] = useState(false);
   const toggleModal = () => isModalOpen(!modal);
 
   const history = useHistory();
-  const handleClick = () => history.push("/budgetstyle");
+  const handleRedirect = (event) => {
+    event.preventDefault();
+    history.push("/budgetstyle");
+  }
 
   return (
     <React.Fragment>
@@ -65,9 +73,34 @@ const Home = (props) => {
         <ModalHeader toggle={toggleModal} className="text-center">
           Let's get started!
         </ModalHeader>
-        <ModalBody>Next stop...financial peace</ModalBody>
+        <ModalBody>
+          <Form>
+            <Row form>
+              <Col>
+                <FormGroup>
+                  <Label htmlFor="firstname">First Name</Label>
+                  <Input type="text" id="firstname" name="firstname" />
+                </FormGroup>
+              </Col>
+              <Col>
+                <FormGroup>
+                  <Label htmlFor="lastname">Last Name</Label>
+                  <Input type="text" id="lastname" name="lastname" />
+                </FormGroup>
+              </Col>
+            </Row>
+            <Row form>
+              <Col>
+                <FormGroup>
+                  <Label htmlFor="email">Email</Label>
+                  <Input type="email" id="email" name="email" />
+                </FormGroup>
+              </Col>
+            </Row>
+          </Form>
+        </ModalBody>
         <ModalFooter>
-          <Button onClick={handleClick}>Submit</Button> <Button>Cancel</Button>
+          <Button onClick={handleRedirect}>Submit</Button>
         </ModalFooter>
       </Modal>
 

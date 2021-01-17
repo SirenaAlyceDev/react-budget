@@ -10,7 +10,11 @@ import {
   Modal,
   ModalBody,
   ModalHeader,
-  ModalFooter
+  ModalFooter,
+  Form,
+  FormGroup,
+  Input,
+  Label
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
@@ -24,6 +28,7 @@ class Header extends Component {
 
     this.toggleNav = this.toggleNav.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
   }
 
   toggleNav() {
@@ -38,6 +43,14 @@ class Header extends Component {
     });
   }
 
+  handleLogin(event) {
+    alert(
+      `Username: ${this.username.value} Password: ${this.password.value} Remember: ${this.remember.checked})`
+    );
+    this.toggleModal();
+    event.preventDefault();
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -50,13 +63,19 @@ class Header extends Component {
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar className="ml-auto">
                 <NavItem>
-                  <NavLink className='nav-link' to="/pricing">Pricing</NavLink>
+                  <NavLink className="nav-link" to="/pricing">
+                    Pricing
+                  </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className='nav-link' to="/faqs">FAQs</NavLink>
+                  <NavLink className="nav-link" to="/faqs">
+                    FAQs
+                  </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className='nav-link' to="/blog">Blog</NavLink>
+                  <NavLink className="nav-link" to="/blog">
+                    Blog
+                  </NavLink>
                 </NavItem>
               </Nav>
               <span className="navbar-text">
@@ -73,10 +92,46 @@ class Header extends Component {
         </Navbar>
 
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-          <ModalHeader toggle={this.toggleModal} className="text-center">Welcome Back!</ModalHeader>
-          <ModalBody>Let's keep making progress!</ModalBody>
+          <ModalHeader toggle={this.toggleModal} className="text-center">
+            Welcome Back, Let's keep making progress!
+          </ModalHeader>
+          <ModalBody>
+            <Form onSubmit={this.handleLogin}>
+              <FormGroup>
+                <Label htmlFor="username">Username</Label>
+                <Input
+                  type="text"
+                  id="username"
+                  name="username"
+                  innerRef={(input) => (this.username = input)}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  type="password"
+                  id="password"
+                  name="password"
+                  innerRef={(input) => (this.password = input)}
+                />
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="checkbox"
+                    name="remember"
+                    innerRef={(input) => (this.remember = input)}
+                  />
+                  Remember Me
+                </Label>
+              </FormGroup>
+            </Form>
+          </ModalBody>
           <ModalFooter>
-            <Button>Submit</Button> <Button>Cancel</Button>
+            <Button type="submit" value="submit" color="primary">
+              Login
+            </Button>
+            <Button onClick={this.toggleModal}>Cancel</Button>
           </ModalFooter>
         </Modal>
       </React.Fragment>
