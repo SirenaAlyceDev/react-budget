@@ -3,7 +3,7 @@ import Home from './HomeComponent';
 import BudgetStyle from './BudgetStyleChoiceComponent';
 import Header from "./HeaderComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
-import ListCalculator from "./ListBudgetComponent";
+import ListBudget from './SimpleListComponent';
 
 class Main extends Component {
   render() {
@@ -18,7 +18,7 @@ class Main extends Component {
         <Switch>
           <Route path='/home' component={HomePage} />
           <Route path='/budgetstyle' component={BudgetStyle} />
-          <Route path='/faqs' component={ListCalculator} />
+          <Route path='/faqs' component={ListBudget} />
           <Redirect to='/home' />
         </Switch>
       </div>

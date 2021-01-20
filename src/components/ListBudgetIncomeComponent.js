@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import {
   Form,
   FormGroup,
@@ -10,8 +10,28 @@ import {
   Container,
 } from "reactstrap";
 
-const ListCalculator = (props) => {
+const ListIncome = (props) => {
   const [inputList, setInputList] = useState([{ income: "", amount: "" }]);
+
+  // handle input change
+  const handleInputChange = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...inputList];
+    list[index][name] = value;
+    setInputList(list);
+  };
+
+  // handle click event of the remove Button
+  const handleRemoveClick = (index) => {
+    const list = [...inputList];
+    list.splice(index, 1);
+    setInputList(list);
+  };
+
+  // handle click event of the add button
+  const handleAddClick = () => {
+    setInputList([...inputList, { income: "", amount: "" }]);
+  };
 
   return (
     <React.Fragment>
@@ -19,22 +39,27 @@ const ListCalculator = (props) => {
         <h3>List Budget</h3>
       </div>
       <div>
+        <Container className="mb-1">
+          <Row>
+            <Col className="moneyInHeader">
+              <Label for="moneyIn">Money In</Label>
+            </Col>
+          </Row>
+        </Container>
+
         {inputList.map((x, i) => {
           return (
             <div className="box container">
               <Form id="moneyInForm">
-                <FormGroup row className="moneyInHeader">
-                  <Col>
-                    <Label for="moneyIn">Money In</Label>
-                  </Col>
-                </FormGroup>
                 <FormGroup row>
                   <Col>
                     <Input
                       type="text"
                       name="income"
                       id="income"
+                      value={x.income}
                       placeholder="paycheck nickname"
+                      onChange={(e) => handleInputChange(e, i)}
                     />
                   </Col>
                   <Col>
@@ -42,22 +67,43 @@ const ListCalculator = (props) => {
                       type="number"
                       name="amount"
                       id="incomeAmount"
+                      value={x.amount}
                       placeholder="paycheck amount"
+                      onChange={(e) => handleInputChange(e, i)}
                     />
                   </Col>
-                  {inputList.length - 1 === i && <Button className="btn" outline>
-                    {" "}
-                    +{" "}
-                  </Button>}
-                  {inputList.length !== 1 && <Button className="btn" outline>
-                    {" "}
-                    -{" "}
-                  </Button>}
+                  {inputList.length - 1 === i && (
+                    <Button className="btn" onClick={handleAddClick} outline>
+                      {" "}
+                      +{" "}
+                    </Button>
+                  )}
+                  {inputList.length !== 1 && (
+                    <Button
+                      className="btn"
+                      onClick={() => handleRemoveClick(i)}
+                      outline
+                    >
+                      {" "}
+                      -{" "}
+                    </Button>
+                  )}
                 </FormGroup>
               </Form>
             </div>
           );
         })}
+        <Container>
+          <Row>
+            <Col>
+              <Label for="totalIncome">Total Income</Label>
+            </Col>
+            <Col>
+              <Input className="totalIncome" disabled />
+            </Col>
+          </Row>
+        </Container>
+        <br />
       </div>
     </React.Fragment>
   );
@@ -188,4 +234,4 @@ const ListCalculator = (props) => {
 //         </Row>
 //       </Container> */}
 
-export default ListCalculator;
+export default ListIncome;
