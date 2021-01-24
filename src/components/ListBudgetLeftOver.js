@@ -23,7 +23,7 @@ class ListRemaining extends Component {
               <Label for="moneyLeft">Income Minus Expenses</Label>
             </Col>
             <Col>
-              <Input className="moneyLeft" disabled />
+              <Input className="moneyLeft"  />
             </Col>
           </FormGroup>
         </Form>

@@ -98,7 +98,7 @@ const ListExpense = (props) => {
               <Label for="totalIncome">Total Expenses</Label>
             </Col>
             <Col>
-              <Input className="totalExpenses" disabled />
+              <Input className="totalExpenses"  />
             </Col>
           </Row>
         </Container>
