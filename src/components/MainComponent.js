@@ -14,13 +14,14 @@ class Main extends Component {
     }
     return (
       <div>
-        <Header />
+        <ListBudget />
+        {/* <Header />
         <Switch>
           <Route path='/home' component={HomePage} />
           <Route path='/budgetstyle' component={BudgetStyle} />
           <Route path='/faqs' component={ListBudget} />
           <Redirect to='/home' />
-        </Switch>
+        </Switch> */}
       </div>
     );
   }
