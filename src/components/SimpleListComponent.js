@@ -1,88 +1,72 @@
-import React, { useState } from "react";
-import { Row, Col, Container, Button } from "reactstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-const IncomeView = (props) => {
-  return (
-    <>
-      <Row>
-        <Col>
-          <p>income name</p>
-        </Col>
-        <Col>
-          <p>income amount</p>
-        </Col>
-        <Col>
-          <p>action</p>
-        </Col>
-      </Row>
-        {props.income.length > 0 ? (
-        props.income.map((income) => (
-          <Row key={income.id}>
-            <Col>{income.name}</Col>
-            <Col>{income.amount}</Col>
-            <Button>Edit</Button><Button>Delete</Button>
-          </Row>
-        ))
-      ) : (
-        <Row>
-          <Col>No Income Added</Col>
-        </Row>
-      )}
-    </>
-  );
-};
+import React, { useState } from 'react';
+import { Row, Col, Container } from "reactstrap";
+import IncomeTable from './IncomeViewComponent';
+import AddIncomeForm from './AddIncomeComponent';
+import EditIncomeForm from './EditIncomeComponent';
 
 const ListBudget = () => {
   const incomeData = [
-    { id: 1, name: "income 1", amount: "100" },
-    { id: 2, name: "income 2", amount: "200" },
-    { id: 3, name: "income 3", amount: "200" },
+    { id: 1, name: 'income 1', amount: 111 },
+    { id: 2, name: 'income 2', amount: 222 },
+    { id: 3, name: 'income 3', amount: 333 },
+  ]
 
-  ];
+  const initialFormState = { id: null, name: '', amount: 0 }
 
-  const [income, setIncome] = useState(incomeData);
+  const [incomes, setIncomes] = useState(incomeData);
+  const [editing, setEditing] = useState(false);
+  const [currentIncome, setCurrentIncome] = useState(initialFormState);
+
+  const editRow = (income) => {
+    setEditing(true)
+    setCurrentIncome({id: income.id, name: income.name, amount: income.amount })
+  }
+
+  const updateIncome = (id, updatedIncome) => {
+    setEditing(false)
+    setIncomes(incomes.map((income) => (income.id === id ? updatedIncome : income)))
+  }
+  const addIncome = (income) => {
+    income.id = incomes.length + 1
+    setIncomes([...incomes, income])
+  }
+
+  const deleteIncome = (id) => {
+    setIncomes(incomes.filter((income) => income.id !== id))
+  }
 
   return (
     <Container>
       <Row>
-        <Col>
-          <h1>Simple List Budget</h1>
-        </Col>
+      <h1>Simple List Budget</h1>
       </Row>
       <Row>
-        <h2>Income</h2>
-      </Row>
-      <Row>
-        <Col>
-          <p>List your monthly sources of income:</p>
-        </Col>
-        <Col>
-          <p>Here are your monthly income sources:</p>
-          <IncomeView income={income}/>
-        </Col>
-      </Row>
-      <Row>
-        <h2>Expenses</h2>
-      </Row>
-      <Row>
-        <Col>
-          <p>List your monthly expenses:</p>
-        </Col>
-        <Col>
-          <p>Here are your monthly expenses:</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <h2>Left Over</h2>
-          <p>Here is what's left over</p>
-          {/* if the number is negative add comment - our budget needs some work */}
-          {/* if number is positive add comment - you're doing great let's save/invest */}
-        </Col>
+        {editing ? (
+          <Col>
+          <h2>Edit Income</h2>
+          <EditIncomeForm
+          setEditing={setEditing}
+          currentIncome={currentIncome}
+          updateIncome={updateIncome}
+          />
+          </Col>
+        ):(
+          <Col>
+          <h2>
+            Add Your Income
+          </h2>
+          <AddIncomeForm addIncome={addIncome} />
+          </Col>
+        )}
+      <Col>
+      <h2>
+        Your Income Sources:
+      </h2>
+      <IncomeTable incomes={incomes} deleteIncome={deleteIncome} editRow={editRow} />
+      </Col>
       </Row>
     </Container>
-  );
-};
+  )
+}
 
 export default ListBudget;
