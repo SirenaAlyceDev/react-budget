@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Row, Col, Container } from "reactstrap";
+import { Row, Col, Container, Button } from "reactstrap";
 import IncomeTable from './IncomeViewComponent';
 import AddIncomeForm from './AddIncomeComponent';
 import EditIncomeForm from './EditIncomeComponent';
 
-const ListBudget = () => {
+const ListBudget = (props) => {
   const incomeData = [
     { id: 1, name: 'income 1', amount: 111 },
     { id: 2, name: 'income 2', amount: 222 },
@@ -35,6 +35,15 @@ const ListBudget = () => {
     setIncomes(incomes.filter((income) => income.id !== id))
   }
 
+  const calculations = () => {
+    let initialValue = 0
+    let sum = incomes.reduce(function(a,c) {
+      return a + c.amount
+    }, initialValue)
+    console.log(sum)
+    console.log(incomes)
+  }
+
   return (
     <Container>
       <Row>
@@ -63,7 +72,22 @@ const ListBudget = () => {
         Your Income Sources:
       </h2>
       <IncomeTable incomes={incomes} deleteIncome={deleteIncome} editRow={editRow} />
+      <h5>Total Monthly Income: </h5>
+      <p>{props.sum}</p>
+      <Button onClick={() => calculations()}>
+        Get total
+      </Button>
       </Col>
+      </Row>
+      <Row>
+        <Col>
+        <h2>Remaining</h2>
+        </Col>
+      </Row>
+      <Row>
+      <Col>
+        <p>remaining amount goes here</p>
+        </Col>
       </Row>
     </Container>
   )
