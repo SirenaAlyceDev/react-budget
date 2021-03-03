@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Row, Col, Container, Button } from "reactstrap";
 import IncomeTable from './IncomeViewComponent';
+import ExpenseTable from './ExpenseViewComponent';
 import AddIncomeForm from './AddIncomeComponent';
 import EditIncomeForm from './EditIncomeComponent';
+import AddExpenseForm from './AddExpenseComponent';
 
 const ListBudget = (props) => {
   const incomeData = [
@@ -72,12 +74,26 @@ const ListBudget = (props) => {
         Your Income Sources:
       </h2>
       <IncomeTable incomes={incomes} deleteIncome={deleteIncome} editRow={editRow} />
-      <h5>Total Monthly Income: </h5>
+      <h5>Total Monthly Income </h5>
       <p>{props.sum}</p>
       <Button onClick={() => calculations()}>
         Get total
       </Button>
       </Col>
+      </Row>
+      <Row>
+        <Col>
+        <h2>
+          Add Your Expenses
+        </h2>
+        <AddExpenseForm />
+        </Col>
+        <Col>
+        <h2>
+          Your Monthly Expenses
+        </h2>
+        <ExpenseTable />
+        </Col>
       </Row>
       <Row>
         <Col>

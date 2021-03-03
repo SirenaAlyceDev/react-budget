@@ -26,7 +26,7 @@ const AddIncomeForm = (props) => {
       setIncome(initialFormState)
     }}>
       <Input type="text" name="name" placeholder="income name" value={income.name} onChange={handleInputChange} />
-      <Input type="number" name="amount" placeholder="income amount" value={props.newint} onChange={handleInputChange} />
+      <Input type="number" name="amount" placeholder="income amount" value={income.amount} onChange={handleInputChange} />
       <Button>Add New Income</Button>
     </Form>
   );
