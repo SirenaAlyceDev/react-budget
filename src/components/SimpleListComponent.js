@@ -42,8 +42,9 @@ const ListBudget = (props) => {
     let sum = incomes.reduce(function(a,c) {
       return a + c.amount
     }, initialValue)
-    console.log(sum)
-    console.log(incomes)
+    // console.log(sum)
+    // console.log(incomes)
+    return sum;
   }
 
   return (
@@ -75,10 +76,7 @@ const ListBudget = (props) => {
       </h2>
       <IncomeTable incomes={incomes} deleteIncome={deleteIncome} editRow={editRow} />
       <h5>Total Monthly Income </h5>
-      <p>{props.sum}</p>
-      <Button onClick={() => calculations()}>
-        Get total
-      </Button>
+      <p>{calculations()}</p>
       </Col>
       </Row>
       <Row>

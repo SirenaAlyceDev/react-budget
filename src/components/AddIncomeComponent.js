@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Input } from "reactstrap";
 
 const AddIncomeForm = (props) => {
-  const initialFormState = { id: null, name: "", amount: 0 };
+  const initialFormState = { id: null, name: "", amount: "" };
   const [income, setIncome] = useState(initialFormState);
 
   const handleInputChange = (event) => {
@@ -26,7 +26,7 @@ const AddIncomeForm = (props) => {
       setIncome(initialFormState)
     }}>
       <Input type="text" name="name" placeholder="income name" value={income.name} onChange={handleInputChange} />
-      <Input type="number" name="amount" placeholder="income amount" value={income.amount} onChange={handleInputChange} />
+      <Input type="text" name="amount" placeholder="income amount" value={income.amount} onChange={handleInputChange} />
       <Button>Add New Income</Button>
     </Form>
   );
