@@ -1,17 +1,16 @@
 import React, { useState } from "react";
-import { Row, Col, Container, Button } from "reactstrap";
+import { Row, Col, Container } from "reactstrap";
 import IncomeTable from "./IncomeViewComponent";
 import ExpenseTable from "./ExpenseViewComponent";
 import AddIncomeForm from "./AddIncomeComponent";
 import EditIncomeForm from "./EditIncomeComponent";
 import AddExpenseForm from "./AddExpenseComponent";
-import EditExpenseForm from './EditExpenseComponent';
+import EditExpenseForm from "./EditExpenseComponent";
+import { PieChart } from "react-minimal-pie-chart";
 
 const ListBudget = (props) => {
   // income
-  const incomeData = [
-    { id: 1, name: "example income", amount: 111 },
-  ];
+  const incomeData = [{ id: 1, name: "example income", amount: 111 }];
 
   const initialFormState = { id: null, name: "", amount: "" };
 
@@ -22,7 +21,7 @@ const ListBudget = (props) => {
   // expense
 
   const expenseData = [
-    { id: 1, name: "example expense", category: "cat 1", amount: 111 }
+    { id: 1, name: "example expense", category: "cat 1", amount: 111 },
   ];
 
   const initialExpenseState = { id: null, name: "", category: "", amount: "" };
@@ -49,8 +48,7 @@ const ListBudget = (props) => {
       category: expense.category,
       amount: expense.amount,
     });
-  }
-
+  };
 
   const updateIncome = (id, updatedIncome) => {
     setEditing(false);
@@ -109,8 +107,8 @@ const ListBudget = (props) => {
     <Container>
       <Row className="justify-content-center">
         <Col>
-        <h1>Simple List Budget</h1>
-        <p>little blurb about what a simple list budget is</p>
+          <h1>Simple List Budget</h1>
+          <p>little blurb about what a simple list budget is</p>
         </Col>
       </Row>
       <Row>
@@ -141,7 +139,7 @@ const ListBudget = (props) => {
         </Col>
       </Row>
       <Row>
-      {editing ? (
+        {editing ? (
           <Col>
             <h2>Edit Expense</h2>
             <EditExpenseForm
@@ -151,11 +149,11 @@ const ListBudget = (props) => {
             />
           </Col>
         ) : (
-        <Col>
-          <h2>Add Your Expenses</h2>
-          <AddExpenseForm addExpense={addExpense} />
-        </Col>
-          )}
+          <Col>
+            <h2>Add Your Expenses</h2>
+            <AddExpenseForm addExpense={addExpense} />
+          </Col>
+        )}
         <Col>
           <h2>Your Monthly Expenses</h2>
           <ExpenseTable
@@ -175,6 +173,18 @@ const ListBudget = (props) => {
       <Row>
         <Col>
           <p>{remainingCalc()}</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+        <PieChart
+          viewBoxSize={[100,100]}
+          radius={25}
+            data={[
+              { title: "One", value: 20, color: "#7bd5f5" },
+              { title: "Two", value: 100, color: "#787ff6" },
+            ]}
+          />
         </Col>
       </Row>
     </Container>
