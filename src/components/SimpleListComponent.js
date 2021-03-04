@@ -181,7 +181,7 @@ const ListBudget = (props) => {
           viewBoxSize={[100,100]}
           radius={25}
             data={[
-              { title: "One", value: 20, color: "#7bd5f5" },
+              { title: "One", value: 100, color: "#7bd5f5" },
               { title: "Two", value: 100, color: "#787ff6" },
             ]}
           />
