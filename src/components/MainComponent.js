@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Home from './HomeComponent';
 import BudgetStyle from './BudgetStyleChoiceComponent';
 import Header from "./HeaderComponent";
-import { Switch, Route, Redirect } from "react-router-dom";
 import ListBudget from './SimpleListComponent';
+import FTTBudget from './FTTBudgetComponent';
+import { Switch, Route, Redirect } from "react-router-dom";
 
 class Main extends Component {
   render() {
@@ -14,14 +15,14 @@ class Main extends Component {
     }
     return (
       <div>
-        <ListBudget />
-        {/* <Header />
+        <Header />
         <Switch>
           <Route path='/home' component={HomePage} />
           <Route path='/budgetstyle' component={BudgetStyle} />
-          <Route path='/faqs' component={ListBudget} />
+          <Route path='/listbudget' component={ListBudget} />
+          <Route path='/fttbudget' component={FTTBudget} />
           <Redirect to='/home' />
-        </Switch> */}
+        </Switch>
       </div>
     );
   }

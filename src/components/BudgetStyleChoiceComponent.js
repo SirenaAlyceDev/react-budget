@@ -12,8 +12,21 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "reactstrap/lib/Container";
 import CardDeck from "reactstrap/lib/CardDeck";
+import { useHistory } from 'react-router-dom';
 
 const BudgetStyle = (props) => {
+
+  const history = useHistory();
+  const handleRedirect = (event) => {
+    event.preventDefault();
+    history.push("/listbudget");
+  }
+
+  const handleFTTRedirect = (event) => {
+    event.preventDefault();
+    history.push("/fttbudget");
+  }
+
   return (
     <Container fluid className="vh-100 d-flex align-items-center">
       <Row className="row align-items-center justify-contents-center">
@@ -33,7 +46,7 @@ const BudgetStyle = (props) => {
                   Pudding topping sesame snaps soufflé. Muffin cheesecake sweet
                   sweet roll. Jelly beans chocolate bar cake gingerbread.
                 </CardText>
-                <Button className="budgetButton">Select</Button>
+                <Button className="budgetButton" onClick={handleRedirect}>Select</Button>
               </CardBody>
             </Card>
             <Card className="text-center budgetCard">
@@ -50,7 +63,7 @@ const BudgetStyle = (props) => {
                   Pudding topping sesame snaps soufflé. Muffin cheesecake sweet
                   sweet roll. Jelly beans chocolate bar cake gingerbread.
                 </CardText>
-                <Button className="budgetButton">Select</Button>
+                <Button className="budgetButton" onClick={handleFTTRedirect}>Select</Button>
               </CardBody>
             </Card>
             <Card className="text-center budgetCard">

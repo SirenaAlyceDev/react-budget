@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Button, Form, Input } from "reactstrap";
 
-const EditIncomeForm = (props) => {
-  const [income, setIncome] = useState(props.currentIncome)
+const EditExpenseForm = (props) => {
+  const [expense, setExpense] = useState(props.currentExpense)
 
   useEffect(() => {
-    setIncome(props.currentIncome)
+    setExpense(props.currentExpense)
   }, [props])
 
   const handleInputChange = (event) => {
     const { name, value } = event.target
-    setIncome({ ...income, [name]: value })
+    setExpense({ ...expense, [name]: value })
     if (name === 'amount') {
-      income.amount = parseInt(value)
+      expense.amount = parseInt(value)
     }
   }
 
@@ -20,27 +20,33 @@ const EditIncomeForm = (props) => {
     <Form
       onSubmit={(event) => {
         event.preventDefault()
-        if (income.amount) {
-          income.amount = parseInt(income.amount)
+        if (expense.amount) {
+          expense.amount = parseInt(expense.amount)
         }
-        if (!income.name || !income.amount) 
+        if (!expense.name || !expense.category || !expense.amount) 
         return
-        props.updateIncome(income.id, income)
+        props.updateExpense(expense.id, expense)
       }}
     >
       <Input
         type="text"
         name="name"
-        value={income.name}
+        value={expense.name}
+        onChange={handleInputChange}
+      />
+            <Input
+        type="text"
+        name="category"
+        value={expense.category}
         onChange={handleInputChange}
       />
       <Input
         type="text"
         name="amount"
-        value={income.amount}
+        value={expense.amount}
         onChange={handleInputChange}
       />
-      <Button>Update Income</Button>
+      <Button>Update Expense</Button>
       <Button
         onClick={() => props.setEditing(false)}
       >
@@ -50,4 +56,4 @@ const EditIncomeForm = (props) => {
   )
 };
 
-export default EditIncomeForm;
+export default EditExpenseForm;
