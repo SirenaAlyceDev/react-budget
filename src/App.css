@@ -41,7 +41,7 @@
 }
 
 /* Code to check grid layout */
-/* .col {
+.col {
   border: solid 1px blue;
   margin: 2px;
 }
@@ -52,7 +52,7 @@
 /* .container-fluid {
   border: solid 1px purple;
   margin: 10px;
-} */
+}
 /* End Code to check grid layout */
 
 /* html, body { height: 100%;} */
@@ -151,10 +151,10 @@ a.nav-link {
   padding-top: 10px;
 }
 
-.tabscontainer {
+/* .tabscontainer {
   margin-left: 20px;
   margin-bottom: 5px;
-}
+} */
 
 .featuresheader {
   color: #210e43;

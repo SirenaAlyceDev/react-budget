@@ -62,11 +62,11 @@ class Header extends Component {
             <NavbarToggler onClick={this.toggleNav} className="mr-2" />
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar className="ml-auto">
-                <NavItem>
+                {/* <NavItem>
                   <NavLink className="nav-link" to="/pricing">
                     Pricing
                   </NavLink>
-                </NavItem>
+                </NavItem> */}
                 <NavItem>
                   <NavLink className="nav-link" to="/faqs">
                     FAQs

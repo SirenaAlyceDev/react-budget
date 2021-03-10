@@ -6,7 +6,7 @@ import AddIncomeForm from "./AddIncomeComponent";
 import EditIncomeForm from "./EditIncomeComponent";
 import AddExpenseForm from "./AddExpenseComponent";
 import EditExpenseForm from "./EditExpenseComponent";
-import { PieChart } from "react-minimal-pie-chart";
+import ListDashboard from './ListDashboardComponent';
 
 const ListBudget = (props) => {
   // income
@@ -177,14 +177,10 @@ const ListBudget = (props) => {
       </Row>
       <Row>
         <Col>
-        <PieChart
-          viewBoxSize={[100,100]}
-          radius={25}
-            data={[
-              { title: "One", value: 100, color: "#7bd5f5" },
-              { title: "Two", value: 100, color: "#787ff6" },
-            ]}
-          />
+        <ListDashboard
+          income= {(calculations()/(expenseCalc() + calculations())) *100}
+          expense= {(expenseCalc()/(expenseCalc() + calculations())) * 100}
+        />
         </Col>
       </Row>
     </Container>
