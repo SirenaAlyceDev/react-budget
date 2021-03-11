@@ -48,7 +48,7 @@ const Home = (props) => {
     if (firstname !=='') {
       event.preventDefault();
       history.push("/budgetstyle");
-    } else alert('need name');
+    } else alert('nope');
   };
 
   return (
