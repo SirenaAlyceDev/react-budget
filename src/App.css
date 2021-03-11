@@ -41,14 +41,14 @@
 }
 
 /* Code to check grid layout */
-.col {
+/* .col {
   border: solid 1px blue;
   margin: 2px;
 }
 .row {
   border: solid 1px red;
   margin: 2px;
-} */
+}  */
 /* .container-fluid {
   border: solid 1px purple;
   margin: 10px;
@@ -168,7 +168,7 @@ a.nav-link {
 .homeLoginButton {
 border-radius: 20px;
 border: none;
-background-image: linear-gradient(to bottom right, #4adede, #1ca7ec);
+background-image: linear-gradient(to right, #4adede, #1ca7ec);
 color: white;
 font-weight: bold;
 font-size: 12px;

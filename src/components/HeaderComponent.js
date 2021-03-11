@@ -14,7 +14,8 @@ import {
   Form,
   FormGroup,
   Input,
-  Label
+  Label,
+  Row
 } from "reactstrap";
 import { NavLink } from "react-router-dom";
 
@@ -54,8 +55,8 @@ class Header extends Component {
   render() {
     return (
       <React.Fragment>
-        <Navbar color="faded" sticky="top" expand="md" light>
-          <div className="container-fluid">
+        <Navbar  expand="md" light>
+          <Row className="container-fluid">
             <NavbarBrand href="/home" className="mr-auto navlogotext">
               The B-Word
             </NavbarBrand>
@@ -88,7 +89,7 @@ class Header extends Component {
                 </Button>
               </span>
             </Collapse>
-          </div>
+          </Row>
         </Navbar>
 
         <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
