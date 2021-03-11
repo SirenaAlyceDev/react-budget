@@ -17,6 +17,7 @@ import {
   FormGroup,
   Label,
   Input,
+  FormFeedback
 } from "reactstrap";
 import classnames from "classnames";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -32,19 +33,22 @@ const Home = (props) => {
   const [modal, isModalOpen] = useState(false);
   const toggleModal = () => isModalOpen(!modal);
 
-  const initialFormState = { firstname: "", lastname: "", email: ""};
+  const initialFormState = { firstname: "", lastname: "", email: "" };
   const [registration, setRegistration] = useState(initialFormState);
 
   const history = useHistory();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setRegistration({ ...registration, [name]: value});
+    setRegistration({ ...registration, [name]: value });
   };
 
   const handleRedirect = (event) => {
-    event.preventDefault();
-    history.push("/budgetstyle");
+    let firstname = registration.firstname;
+    if (firstname !=='') {
+      event.preventDefault();
+      history.push("/budgetstyle");
+    } else alert('need name');
   };
 
   return (
@@ -188,7 +192,15 @@ const Home = (props) => {
                       id="firstname"
                       name="firstname"
                       onChange={handleInputChange}
+                      invalid={registration.firstname === ""}
+                      valid={registration.firstname !== ""}
+                      required
                     />
+                    <FormFeedback valid />
+                    <FormFeedback invalid>
+                      Uh oh! Looks like you didn't enter your first name. Please input
+                      your first name.
+                    </FormFeedback>
                   </FormGroup>
                 </Col>
                 <Col>
@@ -199,7 +211,15 @@ const Home = (props) => {
                       id="lastname"
                       name="lastname"
                       onChange={handleInputChange}
+                      required
+                      invalid={registration.lastname === "" || registration.lastname.length < 2}
+                      valid={registration.lastname !== ""}
                     />
+                    <FormFeedback valid />
+                    <FormFeedback invalid>
+                      Uh oh! Looks like you didn't enter your last name. Please input
+                      your last name.
+                    </FormFeedback>
                   </FormGroup>
                 </Col>
               </Row>
@@ -212,14 +232,22 @@ const Home = (props) => {
                       id="email"
                       name="email"
                       onChange={handleInputChange}
+                      required
+                      invalid={registration.email ===''}
+                      valid={registration.email !==''}
                     />
-                  </FormGroup>
+                    <FormFeedback valid />
+                    <FormFeedback invalid>
+                      Uh oh! Looks like you didn't enter your email.
+                      Please input your email.
+                    </FormFeedback>
+                    </FormGroup>
                 </Col>
               </Row>
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Input type='submit'/>
+            <Input type="submit" onClick={handleRedirect}>Submit</Input>
           </ModalFooter>
         </Modal>
       </Container>
