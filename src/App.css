@@ -137,7 +137,7 @@ a.nav-link {
   color: #210e43;
 }
 
-.ctahome {
+Button.MuiButton-root.ctahome{
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   background: linear-gradient(to bottom right, #787ff6 0%, #4adede 100%);
@@ -145,6 +145,10 @@ a.nav-link {
   border: none;
   font-weight: bold;
   font-size: 12px;
+}
+
+.errormess {
+  color:red;
 }
 
 .mainContainer{

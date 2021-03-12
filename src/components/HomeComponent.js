@@ -6,7 +6,7 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Button,
+  // Button,
   Row,
   Col,
   Modal,
@@ -14,17 +14,16 @@ import {
   ModalHeader,
   ModalFooter,
   Form,
-  FormGroup,
-  Label,
-  Input,
-  FormFeedback
 } from "reactstrap";
 import classnames from "classnames";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import { useFormik } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import { useHistory } from "react-router-dom";
 
-const Home = (props) => {
+const Home = () => {
   const [activeTab, setActivetab] = useState("1");
   const toggle = (tab) => {
     if (activeTab !== tab) setActivetab(tab);
@@ -33,23 +32,50 @@ const Home = (props) => {
   const [modal, isModalOpen] = useState(false);
   const toggleModal = () => isModalOpen(!modal);
 
-  const initialFormState = { firstname: "", lastname: "", email: "" };
-  const [registration, setRegistration] = useState(initialFormState);
-
   const history = useHistory();
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setRegistration({ ...registration, [name]: value });
+  // const handleRedirect = (event) => {
+  //   let firstname = registration.firstname;
+  //   if (firstname !== "") {
+  //     event.preventDefault();
+  //     history.push("/budgetstyle");
+  //   } else alert("nope");
+  // };
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.firstName) {
+      errors.firstName = "Uh oh! Please enter your first name";
+    } else if (values.firstName.length < 2) {
+      errors.firstName = "Unfortunately, your name is too short";
+    }
+    if (!values.lastName) {
+      errors.lastName = "Uh oh! Please enter your first name";
+    } else if (values.lastName.length < 2) {
+      errors.lastName = "Must be 20 characters or less";
+    }
+    if (!values.email) {
+      errors.email = "Uh oh! Please enter your email";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = "Invalid email address";
+    }
+    return errors;
   };
 
-  const handleRedirect = (event) => {
-    let firstname = registration.firstname;
-    if (firstname !=='') {
-      event.preventDefault();
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+    },
+    validate,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
       history.push("/budgetstyle");
-    } else alert('nope');
-  };
+    },
+  });
 
   return (
     <React.Fragment>
@@ -182,72 +208,62 @@ const Home = (props) => {
             Let's get started!
           </ModalHeader>
           <ModalBody>
-            <Form onSubmit={handleRedirect}>
-              <Row form>
+            <Form>
+              <Row>
                 <Col>
-                  <FormGroup>
-                    <Label htmlFor="firstname">First Name</Label>
-                    <Input
-                      type="text"
-                      id="firstname"
-                      name="firstname"
-                      onChange={handleInputChange}
-                      invalid={registration.firstname === ""}
-                      valid={registration.firstname !== ""}
-                      required
-                    />
-                    <FormFeedback valid />
-                    <FormFeedback invalid>
-                      Uh oh! Looks like you didn't enter your first name. Please input
-                      your first name.
-                    </FormFeedback>
-                  </FormGroup>
+                  <TextField
+                    required
+                    id="firstName"
+                    name="firstName"
+                    label="First Name"
+                    variant="outlined"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.firstName}
+                  />
+                  {formik.touched.firstName && formik.errors.firstName ? (
+                    <div className="errormess">{formik.errors.firstName}</div>
+                  ) : null}
                 </Col>
                 <Col>
-                  <FormGroup>
-                    <Label htmlFor="lastname">Last Name</Label>
-                    <Input
-                      type="text"
-                      id="lastname"
-                      name="lastname"
-                      onChange={handleInputChange}
-                      required
-                      invalid={registration.lastname === "" || registration.lastname.length < 2}
-                      valid={registration.lastname !== ""}
-                    />
-                    <FormFeedback valid />
-                    <FormFeedback invalid>
-                      Uh oh! Looks like you didn't enter your last name. Please input
-                      your last name.
-                    </FormFeedback>
-                  </FormGroup>
+                  <TextField
+                    required
+                    id="lastName"
+                    name="lastName"
+                    label="Last Name"
+                    variant="outlined"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.lastName}
+                  />
+                  {formik.touched.lastName && formik.errors.lastName ? (
+                    <div className="errormess">{formik.errors.lastName}</div>
+                  ) : null}
                 </Col>
               </Row>
-              <Row form>
+              <Row>
                 <Col>
-                  <FormGroup>
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      type="email"
-                      id="email"
-                      name="email"
-                      onChange={handleInputChange}
-                      required
-                      invalid={registration.email ===''}
-                      valid={registration.email !==''}
-                    />
-                    <FormFeedback valid />
-                    <FormFeedback invalid>
-                      Uh oh! Looks like you didn't enter your email.
-                      Please input your email.
-                    </FormFeedback>
-                    </FormGroup>
+                  <TextField
+                    required
+                    id="email"
+                    name="email"
+                    label="Email"
+                    variant="outlined"
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    value={formik.values.email}
+                  />
+                  {formik.touched.email && formik.errors.email ? (
+                    <div className="errormess">{formik.errors.email}</div>
+                  ) : null}
                 </Col>
               </Row>
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Input type="submit" onClick={handleRedirect}>Submit</Input>
+            <Button onClick={formik.handleSubmit} type="submit">
+              Submit
+            </Button>
           </ModalFooter>
         </Modal>
       </Container>
