@@ -1,44 +1,6 @@
 /* font-family: 'Roboto', sans-serif; */
 /* #210e43 => for text */
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /* Code to check grid layout */
 /* .col {
@@ -147,6 +109,10 @@ Button.MuiButton-root.ctahome{
   font-size: 12px;
 }
 
+Button.MuiButton-root.ctahome:hover{
+  color: white;
+}
+
 .errormess {
   color:red;
 }
@@ -162,6 +128,7 @@ Button.MuiButton-root.ctahome{
 
 .featuresheader {
   color: #210e43;
+  text-align: center;
 }
 
 .home-image {
@@ -172,8 +139,21 @@ Button.MuiButton-root.ctahome{
 .homeLoginButton {
 border-radius: 20px;
 border: none;
-background-image: linear-gradient(to right, #4adede, #1ca7ec);
-color: white;
+background: linear-gradient(to bottom right, #787ff6 0%, #4adede 100%);
+color: #210e43;
+font-weight: bold;
+font-size: 12px;
+}
+
+button.MuiButtonBase-root.MuiButton-root.MuiButton-text {
+  border-radius: 20px;
+  font-weight: bold;
+font-size: 12px;
+}
+
+button.MuiButtonBase-root.MuiButton-root.MuiButton-text:hover{
+  background: linear-gradient(to bottom right, #787ff6 0%, #4adede 100%);
+color: #210e43;
 font-weight: bold;
 font-size: 12px;
 }
@@ -205,12 +185,16 @@ div.budgetCard {
 button.budgetButton {
   border-radius: 20px;
   border: none;
-  background-image: linear-gradient(to bottom right, #4adede, #1ca7ec);
-  color: white;
+  background: linear-gradient(to bottom right, #787ff6 0%, #4adede 100%);
+  color: #210e43;
   font-weight: bold;
   font-size: 12px;
   }
 
+
+  button.budgetButton :hover{
+  color: white;
+}
   /* List Budget Styling */
 
   .moneyInHeader {

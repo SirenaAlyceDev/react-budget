@@ -6,7 +6,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  // Button,
   Row,
   Col,
   Modal,
@@ -33,14 +32,6 @@ const Home = () => {
   const toggleModal = () => isModalOpen(!modal);
 
   const history = useHistory();
-
-  // const handleRedirect = (event) => {
-  //   let firstname = registration.firstname;
-  //   if (firstname !== "") {
-  //     event.preventDefault();
-  //     history.push("/budgetstyle");
-  //   } else alert("nope");
-  // };
 
   const validate = (values) => {
     const errors = {};
@@ -220,6 +211,7 @@ const Home = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.firstName}
+                    margin="dense"
                   />
                   {formik.touched.firstName && formik.errors.firstName ? (
                     <div className="errormess">{formik.errors.firstName}</div>
@@ -235,6 +227,7 @@ const Home = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.lastName}
+                    margin="dense"
                   />
                   {formik.touched.lastName && formik.errors.lastName ? (
                     <div className="errormess">{formik.errors.lastName}</div>
@@ -252,6 +245,8 @@ const Home = () => {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
+                    margin="dense"
+
                   />
                   {formik.touched.email && formik.errors.email ? (
                     <div className="errormess">{formik.errors.email}</div>
