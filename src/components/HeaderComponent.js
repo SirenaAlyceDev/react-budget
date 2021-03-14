@@ -30,6 +30,17 @@ const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleNav = () => setIsOpen(!isOpen);
 
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+      checkedC: false,
+    },
+    onSubmit: (values) => {
+      console.log(JSON.stringify(values, null, 2));
+    },
+  });
+
   return (
     <React.Fragment>
       <Navbar expand="md" light>
@@ -60,7 +71,7 @@ const Header = (props) => {
         </Row>
       </Navbar>
 
-      <Modal isOpen={isModalOpen} toggle={toggleModal}>
+      <Modal isOpen={modal} toggle={toggleModal}>
         <ModalHeader toggle={toggleModal} className="text-center">
           Welcome Back, Let's keep making progress!
         </ModalHeader>
@@ -75,6 +86,8 @@ const Header = (props) => {
                   label="Email"
                   variant="outlined"
                   margin="dense"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
                 />
               </Col>
               <Col>
@@ -85,6 +98,8 @@ const Header = (props) => {
                   label="Password"
                   variant="outlined"
                   margin="dense"
+                  onChange={formik.handleChange}
+                  value={formik.values.password}
                 />
               </Col>
             </Row>
@@ -93,13 +108,20 @@ const Header = (props) => {
                 <FormControlLabel
                   control={<Checkbox name="checkedC" />}
                   label="Remember Me"
+                  onChange={formik.handleChange}
+                  value={formik.values.checkedC}
                 />
               </Col>
             </Row>
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button type="submit" value="submit" color="primary">
+          <Button
+            onClick={formik.handleSubmit}
+            type="submit"
+            value="submit"
+            color="primary"
+          >
             Login
           </Button>
           <Button onClick={toggleModal}>Cancel</Button>
