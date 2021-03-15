@@ -7,8 +7,10 @@ import EditIncomeForm from "./EditIncomeComponent";
 import AddExpenseForm from "./AddExpenseComponent";
 import EditExpenseForm from "./EditExpenseComponent";
 import ListDashboard from './ListDashboardComponent';
+import { CSVLink, CSVDownload } from 'react-csv';
 
 const ListBudget = (props) => {
+
   // income
   const incomeData = [{ id: 1, name: "example income", amount: 111 }];
 
@@ -103,6 +105,12 @@ const ListBudget = (props) => {
     return remaining;
   };
 
+  const headers = [
+    { label: "No.", key: "id" },
+  { label: "Income Name", key: "name" },
+  { label: "Income Amount", key: "amount" }
+  ];
+
   return (
     <Container>
       <Row className="justify-content-center">
@@ -173,6 +181,7 @@ const ListBudget = (props) => {
       <Row>
         <Col>
           <p>{remainingCalc()}</p>
+          <CSVLink data={incomeData} filename={"my-budget.csv"} headers={headers}>Download Your Budget</CSVLink>
         </Col>
       </Row>
       <Row>

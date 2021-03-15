@@ -19,6 +19,9 @@
 
 /* html, body { height: 100%;} */
 
+.App {
+  text-align: center;
+}
 
 body {
   background-image: url(./imgs/blob3.svg),url(./imgs/blob.svg), url(./imgs/blob2.svg);
