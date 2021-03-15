@@ -19,6 +19,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { withStyles } from '@material-ui/core/styles';
 import { useFormik } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink } from "react-router-dom";
@@ -30,16 +31,46 @@ const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleNav = () => setIsOpen(!isOpen);
 
+  const validate = (values) => {
+    const errors = {};
+    if (!values.password) {
+      errors.password = "Required";
+    } else if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/gm.test(values.password)) {
+      errors.password =
+        "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters";
+    }
+    if (!values.email) {
+      errors.email = "Required";
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = "Invalid email address";
+    }
+    return errors;
+  };
+
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-      checkedC: false,
+      checked: false,
     },
+    validate,
     onSubmit: (values) => {
       console.log(JSON.stringify(values, null, 2));
     },
   });
+
+  const PurpleCheckbox = withStyles({
+    root: {
+      color: "#787ff6",
+      '&$checked': {
+        color: "#787ff6",
+      },
+    },
+    checked: {},
+  })((props) => <Checkbox color="default" {...props} />);
+  
 
   return (
     <React.Fragment>
@@ -87,8 +118,12 @@ const Header = (props) => {
                   variant="outlined"
                   margin="dense"
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   value={formik.values.email}
                 />
+                {formik.touched.email && formik.errors.email ? (
+                  <div className="errormess">{formik.errors.email}</div>
+                ) : null}{" "}
               </Col>
               <Col>
                 <TextField
@@ -96,20 +131,25 @@ const Header = (props) => {
                   id="password"
                   name="password"
                   label="Password"
+                  type="password"
                   variant="outlined"
                   margin="dense"
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   value={formik.values.password}
                 />
+                {formik.touched.password && formik.errors.password ? (
+                  <div className="errormess">{formik.errors.password}</div>
+                ) : null}
               </Col>
             </Row>
             <Row>
               <Col>
                 <FormControlLabel
-                  control={<Checkbox name="checkedC" />}
+                  control={<PurpleCheckbox name="checked" />}
                   label="Remember Me"
                   onChange={formik.handleChange}
-                  value={formik.values.checkedC}
+                  checked={formik.values.checked}
                 />
               </Col>
             </Row>
